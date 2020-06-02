@@ -7,7 +7,7 @@ Bootable systemd-nspawn Gentoo rootfs (OpenRC and systemd) containing a prebuilt
 [Jitsi](https://jitsi.org) is a set of open-source components that allow you to easily build and deploy secure 
 videoconferencing solutions. 
 
-<img src="https://jitsi.org/wp-content/uploads/2018/08/brady-bunch-stand-up-1024x632.jpg" alt="[Jitsi Meet Screenshot (from jitsi.org)]" width="400px" align="right"/>
+<img src="https://jitsi.org/wp-content/uploads/2018/08/brady-bunch-stand-up-1024x632.jpg" alt="[Jitsi Meet Screenshot (from jitsi.org)]" title="[Image credit: jitsi.org]" width="400px" align="right"/>
 
 This project provides two **pre-built root filesystems** ("rootfs"), each containing **the baseline Jitsi Meet server set (v4548) on Gentoo**, under **OpenRC** and **systemd** init respectively. The rootfs have been created so as to be bootable as containers under `systemd-nspawn` (in which they have their own process namespace and pid 1 init).
 

@@ -228,7 +228,7 @@ gentoo-jitsi-systemd ~ # systemctl restart jitsi-meet-server
 
 This will start the various component servers (nginx, jitsi-videobridge, jicofo, turnserver/coturn and prosody).
 
-Startup will take about five seconds. Once done, you should be able to browse to https://foo.barfoo.org (remember, this is just a *fictional* example, use your own FQDN!) from any remote machine and start a new meeting! If all is well, you should find that the browser reports a valid TLS certificate ('padlock' symbol) issued by Let's Encrypt.
+Startup will take about five seconds. Once done, you should be able to browse to https://foo.barfoo.org (remember, this is just a *fictional* example, use your own FQDN!) from any remote machine and start a new meeting (click <kbd>GO</kbd>)! If all is well, you should find that the browser reports a valid TLS certificate ('padlock' symbol) issued by Let's Encrypt.
 
 > An automatic renewal job is also scheduled for you, which will keep this certificate up-to-date, restarting the webserver and turnserver as required.
 

@@ -36,6 +36,7 @@ The underlying Jitsi Meet version is [v4548](https://github.com/jitsi/jitsi-meet
   * [systemd Container (rootfs)](#systemd)
 - [Jitsi Configuration and Bring-Up](#config)
 - [Starting Jitsi Automatically](#startonboot)
+- [Adding a Simple Firewall](#firewall)
 - [Feedback and Bugs](#feedback)
 
 ## <a id="prereq"></a>Prerequisites
@@ -51,7 +52,7 @@ It is assumed that you have:
 * A registered, fully qualified domain name (FQDN) with a DNS 'A' record pointing to the above host's IP address
   * You should be able to externally `ping` the FQDN from an arbitrary machine.
 
-Also, before commencing, ensure the following inbound IP ports are open on your target host:
+Also, before commencing, ensure the following inbound IP ports are **open** on your target host:
 
 * 80/tcp (for Let's Encrypt challenges; other traffic will be auto-redirected to https)
 * 443/tcp (to serve the Jitsi Meet web app to clients; BOSH; also muxed TURN/TLS on nginx)
@@ -59,7 +60,7 @@ Also, before commencing, ensure the following inbound IP ports are open on your 
 * 4446/udp (STUN)
 * 10000/udp (videobridge SFU)
 
-> Consult your VPS help for how to do this. New VPS instances often have *no* ports blocked by default - in which case you will of course meet the criteria above, but will probably want to tighten things down prior to production release (please make sure, when editing firewall settings, not to lock yourself out from `ssh` access; this is most commonly on port 22/tcp, but the setup on your VPS may differ).
+> Consult your VPS help for how to do this. New VPS instances often have *no* ports blocked by default &mdash; in which case you are good to proceed (just follow, in due course, the instructions given [later](#firewall) to install and configure `ufw`).
 
 ## <a id="downloadboot"></a>Downloading and Booting the Container rootfs
 
@@ -232,7 +233,7 @@ Startup will take about five seconds. Once done, you should be able to browse to
 
 > An automatic renewal job is also scheduled for you, which will keep this certificate up-to-date, restarting the webserver and turnserver as required.
 
-In the browser, allow use of your camera / microphone when prompted, and then click on <kbd>I am the host</kbd> in the pop-up dialog which appears, and use the credentials above (in this example "admin" / "horse-battery-staple"; obviously, adapt as appropriate). The new meeting will start, and you will see yourself on screen. You should then be able to send the meeting URL (click the circular (i) icon at the bottom of the window to see it, or look in your browser address bar) to others to enable them to join - they will not require these credentials (however, you *can* set a 'room' password before inviting any guests, if you wish, again via the circular (i) icon). Note that as you have an externally valid TLS certificate, users can *also* join via the official Android or iOS Jitsi apps.
+In the browser, allow use of your camera / microphone when prompted, and then click on <kbd>I am the host</kbd> in the pop-up dialog which appears, and use the credentials above (in this example "admin" / "horse-battery-staple" (without quotation marks); obviously, adapt as appropriate). The new meeting will start, and you will see yourself on screen. You should then be able to send the meeting URL (click the circular (i) icon at the bottom of the window to see it, or look in your browser address bar) to others to enable them to join - they will not require these credentials (however, you *can* set a 'room' password before inviting any guests, if you wish, again via the circular (i) icon). Note that as you have an externally valid TLS certificate, users can *also* join via the official Android or iOS Jitsi apps.
 
 > To allow Android or iOS app users to *initiate* new meetings, you'll need to have them add your host address (in this example, `https://foo.barfoo.org/`) in the Server URL field, under the settings tab of the app (you will also need to let them know the convener credentials &mdash; here, "admin" / "horse-battery-staple").
 
@@ -283,6 +284,27 @@ vps ~ # systemctl enable systemd-nspawn@gentoo-jitsi-systemd
 if you are using the systemd container.
 
 That's it! Now when the host VPS boots, your Gentoo container will automatically start, and then *its* init system will boot Jitsi.
+
+## <a id="firewall"></a>Adding a Simple Firewall
+
+If your VPS currently has no firewall enabled, you can install `ufw` and open only the [necessary ports](#prereq).
+
+To do so, working at the host shell (and assuming you are running Ubuntu or Debian; adapt as required for e.g. Fedora), issue:
+
+```console
+vps ~ # apt-get update && apt-get install -y ufw
+vps ~ # ufw allow 22/tcp
+vps ~ # ufw allow 80/tcp
+vps ~ # ufw allow 443/tcp
+vps ~ # ufw allow 4445/tcp
+vps ~ # ufw allow 4446/udp
+vps ~ # ufw allow 10000/udp
+vps ~ # ufw enable
+```
+
+Your firewall is now running and will start automatically on boot.
+
+> Make sure that your VPS is using port 22 for `ssh` before enabling the firewall (most do, but not all), so you don't lock yourself out!
 
 ## <a id="feedback"></a>Feedback and Bugs
 

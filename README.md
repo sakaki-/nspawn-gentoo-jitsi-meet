@@ -23,7 +23,7 @@ The container rootfs may be downloaded from the appropriate link below (or via `
 
 <a id="downloadlinks"></a>Variant | Version | Image | Digital Signature
 :--- | ---: | ---: | ---:
-Gentoo Jitsi Meet server rootfs (OpenRC) | v1.0.0 | [gentoo-jitsi-openrc.tar.xz](https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-openrc.tar.xz) | [gentoo-jitsi-openrc.tar.xz.asc](https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-openrc.tar.xz)
+Gentoo Jitsi Meet server rootfs (OpenRC) | v1.0.0 | [gentoo-jitsi-openrc.tar.xz](https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-openrc.tar.xz) | [gentoo-jitsi-openrc.tar.xz.asc](https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-openrc.tar.xz.asc)
 Gentoo Jitsi Meet server rootfs (systemd) | v1.0.0 | [gentoo-jitsi-systemd.tar.xz](https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-systemd.tar.xz) | [gentoo-jitsi-systemd.tar.xz.asc](https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-systemd.tar.xz.asc)
 
 The underlying Jitsi Meet version is [v4548](https://github.com/jitsi/jitsi-meet/releases/tag/stable%2Fjitsi-meet_4548) (stable, 1 May 2020).

@@ -88,6 +88,7 @@ vps ~ # rm gentoo-jitsi-openrc.tar.xz
 Create the `systemd-nspawn` boot settings file for this container; issue:
 
 ```console
+vps ~ # mkdir -p /etc/systemd/nspawn
 vps ~ # cat >/etc/systemd/nspawn/gentoo-jitsi-openrc.nspawn <<EOD
 [Exec]
 PrivateUsers=no
@@ -135,6 +136,7 @@ vps ~ # rm gentoo-jitsi-systemd.tar.xz
 Create the `systemd-nspawn` boot settings file for this container; issue:
 
 ```console
+vps ~ # mkdir -p /etc/systemd/nspawn
 vps ~ # cat >/etc/systemd/nspawn/gentoo-jitsi-systemd.nspawn <<EOD
 [Exec]
 PrivateUsers=no

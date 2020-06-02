@@ -81,7 +81,7 @@ Download the OpenRC rootfs tarball (you can also verify the signature if you lik
 
 ```console
 vps ~ # wget -c https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-openrc.tar.xz
-vps ~ # bsdtar --numeric-owner xf gentoo-jitsi-openrc.tar.xz -C /var/lib/machines/
+vps ~ # bsdtar --numeric-owner -xf gentoo-jitsi-openrc.tar.xz -C /var/lib/machines/
 vps ~ # rm gentoo-jitsi-openrc.tar.xz
 ```
 
@@ -128,7 +128,7 @@ Download the systemd rootfs tarball (you can also verify the signature if you li
 
 ```console
 vps ~ # wget -c https://github.com/sakaki-/nspawn-gentoo-jitsi-meet/releases/download/v1.0.0/gentoo-jitsi-systemd.tar.xz
-vps ~ # bsdtar --numeric-owner xf gentoo-jitsi-systemd.tar.xz -C /var/lib/machines/
+vps ~ # bsdtar --numeric-owner -xf gentoo-jitsi-systemd.tar.xz -C /var/lib/machines/
 vps ~ # rm gentoo-jitsi-systemd.tar.xz
 ```
 

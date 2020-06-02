@@ -162,7 +162,7 @@ And your Gentoo rootfs should now be booted in its own process namespace! As you
 
 ```console
 vps ~ # machinectl login gentoo-jitsi-systemd
-<enter password when prompted>
+<enter root, followed by password when prompted>
 ...
 gentoo-jitsi-systemd ~ #
 ```

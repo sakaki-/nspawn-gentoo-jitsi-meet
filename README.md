@@ -268,7 +268,7 @@ Or, if using the systemd variant container, instead issue:
 gentoo-jitsi-systemd ~ # systemdctl enable jitsi-meet-server
 ```
 
-The above ensures that Jitsi will start whenever the container does, but of course, you *also* need to ensure the container *itself* is booted at (host) system startup. To do so, exit back out of your container shell using <kbd>Ctrl</kbd><kbd>d</kbd>, and then, in the host shell, issue either:
+The above ensures that Jitsi will start whenever the container does, but of course, you *also* need to ensure the container *itself* is booted at (host) system startup. To do so, exit back out of your container shell (using <kbd>Ctrl</kbd><kbd>d</kbd> under OpenRC, <kbd>Ctrl</kbd><kbd>]</kbd> three times within one second under systemd), and then, in the host shell, issue either:
 
 ```console
 vps ~ # systemctl enable systemd-nspawn@gentoo-jitsi-openrc

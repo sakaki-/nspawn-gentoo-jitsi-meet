@@ -259,7 +259,7 @@ Once you have your Jitsi server instance working well, you may decide you want t
 To do so, if working with the OpenRC container, issue:
 
 ```console
-gentoo-jitsi-openrc ~ # rc-service add jitsi-meet-server default
+gentoo-jitsi-openrc ~ # rc-update add jitsi-meet-server default
 ```
 
 Or, if using the systemd variant container, instead issue:

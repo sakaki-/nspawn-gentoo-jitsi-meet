@@ -69,6 +69,8 @@ Begin by logging into your target system as root. Then, ensure that `systemd-nsp
 vps ~ # apt-get update && apt-get install -y systemd-container bsdtar wget
 ```
 
+> You may need to use `libarchive-tools` in place of `bsdtar` in the above, depending on your OS version.
+
 Next, choose the init system you prefer, and then continue with either the [OpenRC](#openrc) or [systemd](#systemd) sections below.
 
 > Both deployments have identical functionality, so choose the init system you are more comfortable working with.
